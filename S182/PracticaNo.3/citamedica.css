@@ -1,0 +1,53 @@
+.container {
+    background-image: url('medico2.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
+  
+  .container h2 {
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  form {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  form label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .data-section {
+    margin-top: 20px;
+  }
+  
+  .data-section h3 {
+    margin-top: 0;
+  }
+  
+  .data-section label,
+  .data-section input,
+  .data-section textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
