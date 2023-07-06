@@ -70,9 +70,23 @@ def actualizar(id):
     return redirect(url_for('index'))
 
 
-@app.route('/eliminar')
-def eliminar():
-    return "se elimino el album en la BD"
+@app.route('/eliminar/<id>')
+def eliminar(id):
+     curEliminar= mysql.connection.cursor()
+     curEliminar.execute('select * from albums where id= %s ',(id,))
+     consulID= curEliminar.fetchone()
+     return render_template('eliminarAlbum.html', album= consulID)
+
+@app.route('/borrar/<id>', methods=['POST'])
+def borrar(id):
+    if request.method == 'POST':
+        curAct= mysql.connection.cursor()
+        curAct.execute('delete from albums where id = %s', (id,))
+        mysql.connection.commit()
+
+    flash('Album eliminado de la BD') 
+    return redirect(url_for('index'))
+
 
 # Ejecucion de servidor 
 if __name__==  '__main__':
