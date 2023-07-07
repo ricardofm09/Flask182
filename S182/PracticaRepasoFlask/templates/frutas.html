@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutas</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Fruta</th>
+            <th>Temporada</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+        {% for fruta in frutas %}
+        <tr>
+            <td>{{ fruta[0] }}</td>
+            <td>{{ fruta[1] }}</td>
+            <td>{{ fruta[2] }}</td>
+            <td>{{ fruta[3] }}</td>
+            <td>{{ fruta[4] }}</td>
+            <td>
+                <a href="{{ url_for('actualizar_fruta', id=fruta[0]) }}">Actualizar</a>
+                <a href="{{ url_for('eliminar_fruta', id=fruta[0]) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{{ url_for('index') }}">Regresar al inicio</a>
+</body>
+</html>
