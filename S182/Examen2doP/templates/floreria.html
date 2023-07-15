@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floreria</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Flor</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+        {% for flor in flores %}
+        <tr>
+            <td>{{ flor[0] }}</td>
+            <td>{{ flor[1] }}</td>
+            <td>{{ flor[2] }}</td>
+            <td>{{ flor[3] }}</td>
+            <td>
+                <a href="{{ url_for('actualizar_flor', id=flor[0]) }}">Actualizar</a>
+                <a href="{{ url_for('eliminar_flor', id=flor[0]) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{{ url_for('index') }}">Regresar al inicio</a>
+</body>
+</html>
