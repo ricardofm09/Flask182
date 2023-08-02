@@ -1,23 +1,34 @@
 {%extends 'plantilla.html'%}
-
 {%block body%}
 
+<script>
+function confirmacion(){
+    var respuesta = confirm("¿Desea eliminar el resgistro?");
+    if (respuesta == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+</script>
 <body>
-    <center>
-        <br>
-        <h1>Eliminar Album </h1>
-        <br>
-        <br>
-        <h2>¿Estás seguro que quieres elimarlo? </h2>
-        <form action="/borrar/{{ album.0 }}" method="POST">
+   
+<center>
+<br>
 
-            <input type="text" name="txtTitulo" value="{{ album.1 }}" readonly>
-            <input type="text" name="txtArtista" value="{{ album.2 }}" readonly>
-            <input type="number" name="txtAnio" value="{{ album.3 }}" readonly>
+<h1> Eliminar album</h1>
+<br>
+<br>
 
-            <button type="submit"> Borrar </button>
+    <form action="/borrar/{{album.0}}" method="POST">
 
+        <input type="text" name="txtTitulo" value="{{album.1}}">
+        <input type="text" name="txtArtista" value="{{album.2}}">
+        <input type="number" name="txtAnio" value="{{album.3}}">
+    
+        <input type="submit" name= "Eliminar" value= "Eliminar" onclick= 'return confirmacion()'>
+        
         </form>
+</center>
 
-    </center>
-{%endblock body%}
+{%endblock%}
