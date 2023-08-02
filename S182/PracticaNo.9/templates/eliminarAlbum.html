@@ -1,0 +1,23 @@
+{%extends 'plantilla.html'%}
+
+{%block body%}
+
+<body>
+    <center>
+        <br>
+        <h1>Eliminar Album </h1>
+        <br>
+        <br>
+        <h2>¿Estás seguro que quieres elimarlo? </h2>
+        <form action="/borrar/{{ album.0 }}" method="POST">
+
+            <input type="text" name="txtTitulo" value="{{ album.1 }}" readonly>
+            <input type="text" name="txtArtista" value="{{ album.2 }}" readonly>
+            <input type="number" name="txtAnio" value="{{ album.3 }}" readonly>
+
+            <button type="submit"> Borrar </button>
+
+        </form>
+
+    </center>
+{%endblock body%}
