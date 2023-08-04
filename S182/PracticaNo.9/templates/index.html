@@ -2,9 +2,23 @@
 
 {%block body%}
 
-
-    <h1 class="display-1 text-center mt-5 mb-5 text-danger">Gestion de Albums</h1> 
+    <h1 class="display-1 text-center mt-5 mb-5 text-info">Gestion de Albums</h1> 
     <div class="container"> 
+
+          {%with mensajes= get_flashed_messages() %}
+          {% if mensajes%}
+            {%for msj in mensajes%}
+        
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong> {{ msj }} </strong> 
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <script> Swal.fire('Buen trabajo!','Finalizamos con exito el CRUD Flask!', 'success') </script>
+        
+            {%endfor%}
+          {% endif %}
+        {%endwith%}
 
     <div class="row">
       <div class="col-md-5"> 
@@ -34,7 +48,7 @@
       <div class="col-md-7">
         <h2>Albums Guardados</h2>
 
-<table class="table table-striped">
+<table class="table table-dark table-striped">
   <thead>
     <tr>
       <td class="table-info">Id:</td>
@@ -65,11 +79,4 @@
     </div> <!--row -->
   </div> <!--eres del container-->
 
-{%with mensajes= get_flashed_messages() %}
-  {% if mensajes%}
-    {%for msj in mensajes%}
-        <h3> {{ msj }} </h3>
-    {%endfor%}
-  {% endif %}
-{%endwith%}
-{%endblock%}
+  {%endblock%}
